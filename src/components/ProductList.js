@@ -21,7 +21,6 @@ export class ProductList extends Component {
   render() {
     const productListElement = document.createElement('div')
     productListElement.className = 'product-container'
-    // productListElement.innerHTML = `<div></div>` 
 
     this.state.products.forEach(product => {
       const productItem = new ProductItem({

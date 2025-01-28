@@ -12,7 +12,8 @@ export class CartContext {
             this.cart = this.cart.map(item => {
                 if (item.id === product.id) {
                     return {
-                        ...item.quantity + 1
+                        ...item,
+                        quantity: item.quantity + 1
                     }
                 } else {
                     return item
@@ -20,7 +21,7 @@ export class CartContext {
             })
         } else {
             this.cart.push({
-                ...item,
+                ...product,
                 quantity: 1
             })
         }
@@ -29,6 +30,45 @@ export class CartContext {
 
     getCart() {
         return this.cart
+    }
+
+    deleteItem(id) {
+        this.cart = this.cart.filter(item => item.id !== id)
+        this.notifyListeners()
+    }
+
+    incrementQuantity(id) {
+        const found = this.cart.find(item => item.id === id)
+        if (found) {
+            this.cart = this.cart.map(item => {
+                if (item.id === id) {
+                    return {
+                        ...item,
+                        quantity: item.quantity + 1
+                    }
+                } else {
+                    return item
+                }
+            })
+        }
+        this.notifyListeners()
+    }
+
+    decrementQuantity(id) {
+        const found = this.cart.find(item => item.id === id)
+        if (found) {
+            this.cart = this.cart.map(item => {
+                if (item.id === id) {
+                    return {
+                        ...item,
+                        quantity: item.quantity > 1 ? item.quantity - 1 : item.quantity
+                    }
+                } else {
+                    return item
+                }
+            })
+        }
+        this.notifyListeners()
     }
 
     subscribe(listener) {

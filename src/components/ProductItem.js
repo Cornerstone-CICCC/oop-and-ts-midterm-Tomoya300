@@ -32,6 +32,11 @@ export class ProductItem extends Component {
     title.textContent = this.props.product.title
     product.appendChild(title)
 
+    // Create ID element
+    const id = document.createElement('span')
+    id.textContent = `${this.props.product.id}: `
+    title.prepend(id)
+
     // Create price element
     const price = document.createElement('p')
     price.textContent = parseFloat(this.props.product.price)

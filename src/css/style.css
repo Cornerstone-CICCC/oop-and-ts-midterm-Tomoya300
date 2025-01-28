@@ -6,6 +6,11 @@ body {
     margin: 0;
 }
 
+main {
+    display: flex;
+    padding: 1.5rem;
+}
+
 img {
     width: 200px;
     height: 200px;
@@ -14,6 +19,43 @@ img {
 .product-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
 }
 
+.cart-container {
+    border: 1px solid black;
+    border-radius: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    width: fit-content;
+    height: fit-content;
+    order: 2;
+}
+
+table {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid;
+    padding: 8px;
+}
+
+tr td {
+    text-align: center;
+}
+
+.cart-title {
+    vertical-align: middle;
+    text-align: left;
+}
+
+.cart-image{
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+}
 
