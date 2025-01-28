@@ -4,6 +4,8 @@ export class CartContext {
     constructor() {
         this.cart = []
         this.listeners = []
+        this.total = 0
+        this.totalItems = 0
     }
 
     addProduct(product) {
@@ -26,6 +28,7 @@ export class CartContext {
             })
         }
         this.notifyListeners()
+        console.log(this.cart)
     }
 
     getCart() {
@@ -69,6 +72,22 @@ export class CartContext {
             })
         }
         this.notifyListeners()
+    }
+
+    updateTotal() {
+        this.total = this.cart.reduce((acc, product) => {
+            return acc + (product.price*product.quantity)
+        }, 0)
+
+        console.log(this.total)
+    }
+
+    updateTotalItems() {
+        this.totalItems = this.cart.reduce((acc, product) => {
+            return acc + product.quantity
+        }, 0)
+
+        console.log(this.totalItems)
     }
 
     subscribe(listener) {

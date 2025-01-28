@@ -27,7 +27,7 @@ export class ProductItem extends Component {
     title.prepend(id)
 
     const price = document.createElement('p')
-    price.textContent = parseFloat(this.props.product.price)
+    price.textContent = parseFloat(this.props.product.price).toFixed(2)
     product.appendChild(price)
 
     const addButton = document.createElement('button')
