@@ -77,6 +77,9 @@ img {
 }
 
 .cart-container {
+    order: 2;
+}
+.cart-main {
     border: 1px solid black;
     border-radius: 18px;
     display: flex;
@@ -85,7 +88,23 @@ img {
     padding: 1rem;
     width: fit-content;
     height: fit-content;
-    order: 2;
+}
+
+.cart-icon {
+    /* border: 1px solid black;
+    border-radius: 10px; */
+    width: fit-content;
+    /* padding: 4px; */
+}
+
+svg {
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
+}
+
+.cart-heading {
+    text-align: center;
 }
 
 table {
