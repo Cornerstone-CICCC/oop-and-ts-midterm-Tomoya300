@@ -19,10 +19,10 @@ html {
     background: linear-gradient(130deg, hsl(136, 65%, 51%), hsl(192, 70%, 51%));
     cursor: pointer;
     transition: all 0.3s ease;
+}
 
-    &:hover {
-        opacity: 0.7;
-    }
+.signin-btn button:hover {
+    opacity: 0.7;
 }
 
 /* ----------------------- header --------------------------- */
@@ -63,38 +63,153 @@ header {
 main {
     display: flex;
     padding: 1.5rem;
+    overflow: hidden;
 }
 
-img {
-    width: 200px;
-    height: 200px;
+.heading {
+    text-align: center;
 }
+
+/* ---------------------------- product list --------------------------------------- */
 
 .product-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+    column-gap: 1rem;
+    row-gap: 5rem;
+    text-align: center;
 }
 
-.cart-container {
-    order: 2;
-}
-.cart-main {
-    border: 1px solid black;
-    border-radius: 18px;
+.product-card {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1rem;
+    justify-content: space-between;
+    /* border: 2px solid black;
+    border-radius: 10px; */
+}
+
+.product-img {
+    width: 200px;
+    height: 200px;
+}
+
+.product-title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    width: fit-content;
+    margin: 1rem 0;
+}
+
+.product-desc {
+    display: none;
+}
+
+.product-price {
+    font-size: 20px;
+    margin: 1rem 0;
+}
+
+.add-cart-btn {
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: hsl(136, 65%, 51%);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 1rem 0 0 0;
+}
+
+.add-cart-btn:hover {
+    background-color: hsl(136, 65%, 51%, 0.7);
+}
+
+.modal-open {
+    cursor: pointer;
+}
+
+/* --------------------------------------------- modal ---------------------------------------------------- */
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-container {
+    display: flex;
+    width: 80vw;
+    height: 70vh;
+}
+
+.modal-left {
+    width: 40%;
+    height: 100%;
+}
+
+.modal-right {
+    width: 60%;
+    height: 100%;
+}
+
+
+/* ------------------------------ cart ------------------------------------ */
+
+.cart-container {
+    order: 2;
+    height: fit-content;
+    background-color: white;
+    overflow: scroll;
+    width: 0;
+    height: 0;
+}
+
+.hidden {
+    transform: translateX(100%);
+    transition: all 0.4s ease;
+}
+
+.icon-box {
+    position: relative;
     width: fit-content;
     height: fit-content;
 }
 
 .cart-icon {
-    /* border: 1px solid black;
-    border-radius: 10px; */
     width: fit-content;
-    /* padding: 4px; */
+    height: fit-content;
+    position: fixed;
+    top: calc(30vh - 40px);
+    right: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cart-icon:hover {
+    opacity: 0.7;
+}
+
+.mini-total-items {
+    color: white;
+    width: fit-content;
+    height: fit-content;
+    font-size: 14px;
+    text-align: center;
+    margin: 0;
+    position: absolute;
+    top: 4px;
+    right: 13px;
 }
 
 svg {
@@ -103,9 +218,51 @@ svg {
     vertical-align: middle;
 }
 
+.cart-main {
+    border: 1px solid black;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    width: fit-content;
+    max-width: 70vw;
+    height: fit-content;
+    max-height: 70vh;
+    position: fixed;
+    top: 30vh;
+    right: 0;
+    background-color: white;
+    transition: all 0.4s ease;
+}
+
 .cart-heading {
     text-align: center;
+    margin: 0 0 10px 0;
 }
+
+.table-top-box {
+    overflow: scroll;
+}
+
+.table-top-box::-webkit-scrollbar {
+    width: 5px;
+    height: 4px;
+}
+.table-top-box::-webkit-scrollbar:horizontal {
+    width: 0;
+    height: 0;
+}
+.table-top-box::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius: 10px;
+}
+
+.table-top-box::-webkit-scrollbar-thumb {
+    background-color: #8d8d8d;
+    border-radius: 10px;
+}
+
 
 table {
     border: 1px solid black;
@@ -134,7 +291,7 @@ tr td {
 }
 
 .table-bottom {
-    margin-top: 2rem;
+    margin-top: 1rem;
 }
 
 
