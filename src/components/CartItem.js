@@ -31,7 +31,7 @@ export class CartItem extends Component {
         <div>${this.props.item.title}</div>
       </td>
       <td>${this.props.item.price}</td>
-      <td><button class="minus">-</button>${this.props.item.quantity}<button class="plus">+</button></td>
+      <td><button class="minus quantity-btn ${this.props.item.quantity === 1 ? '' : 'btn-hover'}" ${this.props.item.quantity === 1 ? 'disabled' : ''}>\u2013</button>${this.props.item.quantity}<button class="plus quantity-btn ${this.props.item.quantity === 99 ? '' : 'btn-hover'}" ${this.props.item.quantity === 99 ? 'disabled' : ''}>+</button></td>
       <td><button class="delete">Delete</button></td>
     `
 

@@ -28,7 +28,6 @@ export class CartContext {
             })
         }
         this.notifyListeners()
-        console.log(this.cart)
     }
 
     getCart() {
@@ -78,16 +77,12 @@ export class CartContext {
         this.total = this.cart.reduce((acc, product) => {
             return acc + (product.price*product.quantity)
         }, 0)
-
-        console.log(this.total)
     }
 
     updateTotalItems() {
         this.totalItems = this.cart.reduce((acc, product) => {
             return acc + product.quantity
         }, 0)
-
-        console.log(this.totalItems)
     }
 
     subscribe(listener) {

@@ -23,7 +23,7 @@ export class Footer extends Component {
           <button>Sign in</button>
         </div>
       </div>
-      <div class='copyright'>
+      <div class='footer-bottom'>
         <p>&copy;${new Date().getFullYear()} Pretty Charmmy. All rights reserved.</p>
       </div>
     `

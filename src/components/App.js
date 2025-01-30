@@ -12,9 +12,11 @@ export class App extends Component {
       <header></header>
       <div class="shop">
         <div class="heading">
-          <h1>My Charmmy Shop</h1>
+          <h1>Pretty Charmmy</h1>
+          <p>Welcome to e-Shop Pretty Charmmy where you can find everything you want. We offer prenty of products from clothes, amenities, foods to jueries, appliance, video games, etc., with great price and sail occasionally. You will find something you want and something new that makes you want.</p>
         </div>
         <main>
+          <h2 class='product-list-heading'>Best Sellers</h2>
         </main>
       </div>
       <footer></footer>

@@ -11,7 +11,6 @@ export class ProductList extends Component {
     fetch(`https://fakestoreapi.com/products`)
       .then(res => res.json())
       .then(data => {
-        console.log(data)
         this.state.products = data
         container.appendChild(this.render())
       })
