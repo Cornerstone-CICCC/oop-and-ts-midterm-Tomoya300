@@ -62,7 +62,6 @@ header {
 /* ------------------------ main ---------------------------- */
 main {
     display: flex;
-    padding: 1.5rem;
     overflow: hidden;
 }
 
@@ -74,10 +73,10 @@ main {
 
 .product-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    column-gap: 1rem;
-    row-gap: 5rem;
-    text-align: center;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 2rem;
+    row-gap: 4rem;
+    margin: 0 auto;
 }
 
 .product-card {
@@ -85,13 +84,31 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    /* border: 2px solid black;
-    border-radius: 10px; */
+    background-color: rgb(231, 231, 231);
+    border-radius: 10px;
+    padding: 2rem 1rem;
+    max-width: 300px;
+}
+
+.modal-open {
+    text-align: center;
+}
+
+.img-box {
+    width: 250px;
+    height: 300px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
 }
 
 .product-img {
-    width: 200px;
-    height: 200px;
+    object-fit: contain;
+    width: 230px;
+    height: 250px;
+    border-radius: 10px;
 }
 
 .product-title {
@@ -102,9 +119,11 @@ main {
     overflow: hidden;
     width: fit-content;
     margin: 1rem 0;
+    width: 100%;
+    max-width: 400px;
 }
 
-.product-desc {
+.hide-desc {
     display: none;
 }
 
@@ -150,19 +169,37 @@ main {
 .modal-container {
     display: flex;
     width: 80vw;
-    height: 70vh;
+    height: 80vh;
 }
 
 .modal-left {
-    width: 40%;
+    width: 100%;
     height: 100%;
+    background-color: white;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.modal-left img {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
 }
 
 .modal-right {
-    width: 60%;
+    width: 100%;
     height: 100%;
+    background-color: white;
+    padding: 3rem;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
-
 
 /* ------------------------------ cart ------------------------------------ */
 
@@ -190,7 +227,7 @@ main {
     width: fit-content;
     height: fit-content;
     position: fixed;
-    top: calc(30vh - 40px);
+    top: calc(30vh - 50px);
     right: 0;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -200,6 +237,17 @@ main {
     opacity: 0.7;
 }
 
+.mini-total-box {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 3px;
+    right: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .mini-total-items {
     color: white;
     width: fit-content;
@@ -207,14 +255,11 @@ main {
     font-size: 14px;
     text-align: center;
     margin: 0;
-    position: absolute;
-    top: 4px;
-    right: 13px;
 }
 
 svg {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     vertical-align: middle;
 }
 
@@ -226,7 +271,7 @@ svg {
     align-items: center;
     padding: 1rem;
     width: fit-content;
-    max-width: 70vw;
+    max-width: 50vw;
     height: fit-content;
     max-height: 70vh;
     position: fixed;
@@ -265,14 +310,35 @@ svg {
 
 
 table {
-    border: 1px solid black;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid;
     width: 100%;
+    border-radius: 5px;
 }
 
-th, td {
-    border: 1px solid;
+th {
+    border-left: 1px solid;
+    padding: 0 10px;
+}
+
+td {
+    border-left: 1px solid;
+    border-top: 1px solid;
     padding: 8px;
+}
+
+th:first-child {
+    border-top: none;
+    border-left: none;
+}
+
+td:first-child {
+    border-left: none;
+}
+
+.bottom-td td {
+    border-top: none;
 }
 
 tr td {
@@ -280,14 +346,16 @@ tr td {
 }
 
 .cart-title {
-    vertical-align: middle;
     text-align: left;
+    display: flex;
+    align-items: center;
 }
 
 .cart-image{
+    object-fit: contain;
     width: 30px;
     height: 30px;
-    vertical-align: middle;
+    margin: 0 14px;
 }
 
 .table-bottom {

@@ -25,7 +25,8 @@ export class CartItem extends Component {
     cartItemElement.innerHTML = `
       <td>${this.props.item.id}</td>
       <td class="cart-title">
-        <div><img src=${this.props.item.image} alt="cart item" class="cart-image"/>
+        <div>
+          <img src=${this.props.item.image} alt="cart item" class="cart-image"/>
         </div>
         <div>${this.props.item.title}</div>
       </td>
