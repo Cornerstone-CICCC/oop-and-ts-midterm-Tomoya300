@@ -10,6 +10,13 @@ export class ProductItem extends Component {
     this.props.cartContext.addProduct(this.props.product)
   }
 
+  updateRating() {
+    const stars = document.querySelectorAll('.star')
+    stars.forEach((star, index) => {
+
+    })
+  }
+
   render() {
     const product = document.createElement('div')
     product.className = 'product-card'
@@ -33,9 +40,53 @@ export class ProductItem extends Component {
     id.className = 'product-id'
     title.prepend(id)
 
+    const category = document.createElement('p')
+    category.className = 'category hide-categ'
+    category.textContent = this.props.product.category
+
     const description = document.createElement('p')
     description.className = 'product-desc hide-desc'
     description.textContent = this.props.product.description
+
+    const rateBox = document.createElement('div')
+    rateBox.className = 'rate-box'
+
+    const itemRate = this.props.product.rating.rate.toFixed(1)
+
+    const ratignNum = document.createElement('p')
+    ratignNum.className = 'rating-num'
+    ratignNum.textContent = itemRate
+
+    const starBox = document.createElement('div')
+    starBox.className = 'star-box'
+    
+    const rateHead = document.createElement('span')
+    rateHead.className = 'rate-head'
+    rateHead.textContent = 'Rate: '
+    
+    const denominator = document.createElement('spna')
+    denominator.className = 'denominator'
+    denominator.textContent = `(${this.props.product.rating.count})`
+
+    for (let i = 0; i < 5; i++) {
+      const star = document.createElement('span')
+      star.className = 'star'
+      star.textContent = ' \u2605'
+
+      star.classList.toggle("star-filled", i < Math.floor(itemRate));
+
+      if (i === Math.floor(itemRate) && itemRate%1 !== 0) {
+        star.style.background = `linear-gradient(to right, gold ${itemRate%1*100}%, #b3b3b3 ${itemRate%1*100}%)`
+        star.style.backgroundClip ='text'
+        star.style.color = 'transparent'
+      }
+      starBox.appendChild(star)
+    }
+
+    starBox.appendChild(ratignNum)
+    rateBox.appendChild(rateHead)
+    rateBox.appendChild(starBox)
+    rateBox.appendChild(denominator)
 
     const price = document.createElement('p')
     price.className = 'product-price'
@@ -43,7 +94,9 @@ export class ProductItem extends Component {
     
     modalOpen.appendChild(imgBox)
     modalOpen.appendChild(title)
+    modalOpen.appendChild(category)
     modalOpen.appendChild(description)
+    modalOpen.appendChild(rateBox)
     modalOpen.appendChild(price)
     product.appendChild(modalOpen)
 
@@ -73,29 +126,39 @@ export class ProductItem extends Component {
       const modalLeft = document.createElement('div')
       const modalRight = document.createElement('div')
       const descHeading = document.createElement('p')
+      const modalCategBox = document.createElement('div')
+      const categHead = document.createElement('p')
       const modalImg = product.querySelector('.product-img').cloneNode(true)
       const modalTitle = product.querySelector('.product-title').cloneNode(true)
       const modalDescription = product.querySelector('.product-desc').cloneNode(true)
+      const modalCategory = product.querySelector('.category').cloneNode(true)
+      const modalRateBox = product.querySelector('.rate-box').cloneNode(true)
       const modalPrice = product.querySelector('.product-price').cloneNode(true)
       const modalAddBtn = product.querySelector('.add-cart-btn').cloneNode(true)
 
-      descHeading.className = 'caption'
-      descHeading.textContent = 'Caption'
-
-      
-      
       overlay.className = 'overlay'
       modalContainer.className = 'modal-container'
       modalLeft.className = 'modal-left'
       modalRight.className = 'modal-right'
       modalTitle.className = 'modal-title'
+      descHeading.className = 'caption'
       modalDescription.className = 'modal-desc'
+      modalCategBox.className = 'modal-categ-box'
+      categHead.classname = 'categ-head'
+      modalCategory.className = 'modal-categ'
       modalAddBtn.className = 'add-cart-btn'
 
+      descHeading.textContent = 'Description'
+      categHead.textContent = 'Category: '
+      modalCategBox.appendChild(categHead)
+      modalCategBox.appendChild(modalCategory)
+    
       modalLeft.appendChild(modalImg)
       modalRight.appendChild(modalTitle)
       modalRight.appendChild(descHeading)
       modalRight.appendChild(modalDescription)
+      modalRight.appendChild(modalCategBox)
+      modalRight.appendChild(modalRateBox)
       modalRight.appendChild(modalPrice)
       modalRight.appendChild(modalAddBtn)
       modalContainer.appendChild(modalLeft)
