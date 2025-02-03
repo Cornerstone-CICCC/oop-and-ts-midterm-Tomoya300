@@ -91,19 +91,29 @@ export class ProductItem extends Component {
     const price = document.createElement('p')
     price.className = 'product-price'
     price.textContent = `$${parseFloat(this.props.product.price).toFixed(2)}`
-    
-    modalOpen.appendChild(imgBox)
-    modalOpen.appendChild(title)
-    modalOpen.appendChild(category)
-    modalOpen.appendChild(description)
-    modalOpen.appendChild(rateBox)
-    modalOpen.appendChild(price)
-    product.appendChild(modalOpen)
+
+    const infoBox = document.createElement('div')
+    infoBox.className = 'info-box'
 
     const addButton = document.createElement('button')
     addButton.className = 'add-cart-btn'
     addButton.textContent = 'Add to Cart'
-    product.appendChild(addButton)
+    
+    infoBox.appendChild(title)
+    infoBox.appendChild(category)
+    infoBox.appendChild(description)
+    infoBox.appendChild(rateBox)
+    infoBox.appendChild(price)
+    infoBox.appendChild(addButton)
+
+    modalOpen.appendChild(imgBox)
+    modalOpen.appendChild(infoBox)
+    // modalOpen.appendChild(title)
+    // modalOpen.appendChild(category)
+    // modalOpen.appendChild(description)
+    // modalOpen.appendChild(rateBox)
+    // modalOpen.appendChild(price)
+    product.appendChild(modalOpen)
 
     addButton.addEventListener('click', this.handleAddProduct)
 
@@ -118,7 +128,7 @@ export class ProductItem extends Component {
     closeSvg.appendChild(svgPath)
     modalClose.appendChild(closeSvg)
 
-    modalOpen.addEventListener('click', (e) => {
+    title.addEventListener('click', (e) => {
       e.stopPropagation()
       console.log('button clicked')
       const overlay = document.createElement('div')

@@ -6,7 +6,7 @@ export class Header extends Component {
     headerElement.className = 'header'
     headerElement.innerHTML = `
       <div class='header-logo'>
-        <p>logo</p>
+        <img src="../image/C-logo.svg">
       </div>
       <div class='header-menu'>
         <ul>

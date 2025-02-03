@@ -7,7 +7,7 @@ export class Footer extends Component {
     footerElement.innerHTML = `
       <div class='footer-top'>
         <div class='footer-logo'>
-          <p>logo</p>
+          <img src="../image/C-logo.svg">
         </div>
         <div class='footer-menu'>
           <ul>
