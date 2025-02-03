@@ -24,7 +24,7 @@ export class Footer extends Component {
         </div>
       </div>
       <div class='footer-bottom'>
-        <p>&copy;${new Date().getFullYear()} Pretty Charmmy. All rights reserved.</p>
+        <p>&copy;${new Date().getFullYear()} Charmmy. All rights reserved.</p>
       </div>
     `
 
