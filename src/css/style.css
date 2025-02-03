@@ -208,6 +208,11 @@ main {
     width: 100%;
     max-width: 400px;
     cursor: pointer;
+    transition: all 0.3 ease;
+}
+
+.product-title:hover {
+    opacity: 0.7;
 }
 
 .hide-desc {
@@ -714,11 +719,16 @@ tr td {
 
 @media screen and (max-width:769px) {
     .cart-main {
-        width: 95vw;
+        width: 100vw;
+        max-width: 100vw;
     }
 
     .table-top-box {
         max-width: 100%;
+    }
+
+    .table-top thead th:nth-last-child(2) {
+        padding: 0 13px;
     }
 
     .table-bottom {

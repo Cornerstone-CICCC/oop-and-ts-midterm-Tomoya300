@@ -65,7 +65,7 @@ export class CartList extends Component {
                 <th>Product</th>
                 <th>Price</th>
                 <th>Quantity</th>
-                <th>Delete Item</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody class='cart-list-table'>
